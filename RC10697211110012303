@@ -1,0 +1,98 @@
+FECHA PROCESO:      10/11/21            OBLIGACION DE PAGOS TRANSFERENCIAS EN LINEA       PAG:     1
+FECHA EFECTIVA:     10/11/21            BCO CHILE                    ID: 067200000    HORA: 01:23:03
+CICLO:10:00 hrs                                                                                     
+                                                                                                    
+NOMBRE BANCO                           NUM CREDITOS      MONTO DE CREDITOS                MONTO NETO
+================                       ============    ===================        ==================
+LA POLAR        ID: 000100000                                                                      
+                  ITEMS RCVD:                 1180             202,543,412              202,543,412 
+                  ITEMS ENVS:                  861    (        183,639,004)    (        183,639,004)
+                                                                                ====================
+               SUBTOTAL NETO:                                                            18,904,408 
+INTERNACIONAL    ID: 000900000                                                                      
+                  ITEMS RCVD:                    5                 413,674                  413,674 
+                  ITEMS ENVS:                    3    (          2,420,151)    (          2,420,151)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (          2,006,477)
+BCO ESTADO       ID: 001200000                                                                      
+                  ITEMS RCVD:                 8574             963,922,691              963,922,691 
+                  ITEMS ENVS:                 6842    (        705,305,140)    (        705,305,140)
+                                                                                ====================
+               SUBTOTAL NETO:                                                           258,617,551 
+SCOTIABANK       ID: 001400000                                                                      
+                  ITEMS RCVD:                  476             124,734,295              124,734,295 
+                  ITEMS ENVS:                  301    (         56,843,346)    (         56,843,346)
+                                                                                ====================
+               SUBTOTAL NETO:                                                            67,890,949 
+BANCO CREDITO    ID: 001600000                                                                      
+                  ITEMS RCVD:                 1200             205,394,090              205,394,090 
+                  ITEMS ENVS:                  888    (        158,246,415)    (        158,246,415)
+                                                                                ====================
+               SUBTOTAL NETO:                                                            47,147,675 
+CORP BANCA       ID: 002700000                                                                      
+                  ITEMS RCVD:                    0                       0                        0 
+                  ITEMS ENVS:                    3    (            324,250)    (            324,250)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (            324,250)
+BICE             ID: 002800000                                                                      
+                  ITEMS RCVD:                   31               8,643,148                8,643,148 
+                  ITEMS ENVS:                   17    (          1,841,398)    (          1,841,398)
+                                                                                ====================
+               SUBTOTAL NETO:                                                             6,801,750 
+HSBC             ID: 003100000                                                                      
+                  ITEMS RCVD:                    0                       0                        0 
+                  ITEMS ENVS:                    0    (                  0)    (                  0)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (                  0)
+BCO SANTANDER    ID: 003700000                                                                      
+                  ITEMS RCVD:                 1742             351,636,283              351,636,283 
+                  ITEMS ENVS:                 1303    (        285,689,045)    (        285,689,045)
+                                                                                ====================
+               SUBTOTAL NETO:                                                            65,947,238 
+BANCO ITAU       ID: 003900000                                                                      
+                  ITEMS RCVD:                  250              50,724,171               50,724,171 
+                  ITEMS ENVS:                  174    (         51,380,877)    (         51,380,877)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (            656,706)
+BCO SECURITY     ID: 004900000                                                                      
+                  ITEMS RCVD:                   21              17,421,395               17,421,395 
+                  ITEMS ENVS:                   32    (         13,441,206)    (         13,441,206)
+                                                                                ====================
+               SUBTOTAL NETO:                                                             3,980,189 
+BCO FALABELLA    ID: 005100000                                                                      
+                  ITEMS RCVD:                  957             107,399,167              107,399,167 
+                  ITEMS ENVS:                  621    (        132,088,509)    (        132,088,509)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (         24,689,342)
+BCO RIPLEY       ID: 005300000                                                                      
+                  ITEMS RCVD:                  148              18,074,170               18,074,170 
+                  ITEMS ENVS:                  144    (         18,405,273)    (         18,405,273)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (            331,103)
+CONSORCIO        ID: 005500000                                                                      
+                  ITEMS RCVD:                   28               2,811,936                2,811,936 
+                  ITEMS ENVS:                   15    (          1,697,980)    (          1,697,980)
+                                                                                ====================
+               SUBTOTAL NETO:                                                             1,113,956 
+BCO BBVA         ID: 050400000                                                                      
+                  ITEMS RCVD:                    0                       0                        0 
+                  ITEMS ENVS:                   19    (          3,257,863)    (          3,257,863)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (          3,257,863)
+BCO DESARROLLO   ID: 050700000                                                                      
+                  ITEMS RCVD:                    0                       0                        0 
+                  ITEMS ENVS:                    0    (                  0)    (                  0)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (                  0)
+LOS HêROES       ID: 072900000                                                                      
+                  ITEMS RCVD:                   12               2,270,226                2,270,226 
+                  ITEMS ENVS:                    5    (            240,000)    (            240,000)
+                                                                                ====================
+               SUBTOTAL NETO:                                                             2,030,226 
+TENPO            ID: 073000000                                                                      
+                  ITEMS RCVD:                    8               1,322,136                1,322,136 
+                  ITEMS ENVS:                   29    (          1,636,565)    (          1,636,565)
+                                                                                ====================
+               SUBTOTAL NETO:                                                  (            314,429)
+                                                                                ====================
+                  TOTAL NETO:                                                           440,853,772 

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+   <script src = "js/angular.min.js"></script>
+   <script src = "js/controllers/HelloController.js"></script>
+</head>
+   
+<body ng-app = "myapp">
+   <div ng-controller = "HelloController" >
+      <h2>Welcome {{bch.title}} to the world of Tutorialspoint!</h2>
+
+      <br>
+      
+      Nombre Estudiante: <input type = "text" ng-model = "estudiante.nombre"><br>
+      Edad Estudiante: <input type = "text" ng-model = "estudiante.edad"><br>
+      <input type="button" id="btnClick" ng-click="clickMe()" value="Click" />
+
+      <br>
+      <div ng-init = "countries = [{locale:'en-US',name:'United States'}, 
+      {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
+
+         <ul>
+            <li ng-repeat = "country in countries">
+               {{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+            </li>
+         </ul>
+
+      </div>
+      <br>
+
+      <input type="button" id="btnShow" ng-click="showMe()" value="Show/Hide" /><br>
+      <div ng-show="variableShow">contenido a mostrar</div>
+
+      <br>
+
+      <!--Incluir páginas con ng-include-->
+      <div ng-include="'pagina1.html'"></div>
+
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+{"properties": [
+  {
+    "name": "ws.consulta.url",
+    "type": "java.lang.String",
+    "description": "URL del WS del servicio de consulta"
+  },
+  {
+    "name": "ws.cargo.url",
+    "type": "java.lang.String",
+    "description": "URL del WS del servicio de cargo"
+  },
+  {
+    "name": "ws.cargo.token.url",
+    "type": "java.lang.String",
+    "description": "URL del WS del servicio de token para utilizar el servicio de cargo"
+  },
+  {
+    "name": "ws.consulta.url",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url'"
+  },
+  {
+    "name": "keystore.certificado",
+    "type": "java.lang.String",
+    "description": "A description for 'keystore.certificado'"
+  },
+  {
+    "name": "keystore.password",
+    "type": "java.lang.String",
+    "description": "A description for 'keystore.password'"
+  },
+  {
+    "name": "ws.cargo.token.user",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.token.user'"
+  },
+  {
+    "name": "ws.cargo.token.password",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.token.password'"
+  },
+  {
+    "name": "ws.cca.token.url",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.token.url'"
+  },
+  {
+    "name": "ws.cca.client-id",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.client-id'"
+  },
+  {
+    "name": "ws.cca.client-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.client-secret'"
+  },
+  {
+    "name": "ws.cca.reset-token-url",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.reset-token-url'"
+  },
+  {
+    "name": "ws.cca.reset-client-id",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.reset-client-id'"
+  },
+  {
+    "name": "ws.cca.reset-client-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.reset-client-secret'"
+  },
+  {
+    "name": "ws.cca.reset-tipoAuth",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.reset-tipoAuth'"
+  },
+  {
+    "name": "ws.cargo.tipoAuth",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.tipoAuth'"
+  },
+  {
+    "name": "ws.cargo.grandType",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.grandType'"
+  },
+  {
+    "name": "ws.cca.token.grandType",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.token.grandType'"
+  },
+  {
+    "name": "ws.cca.nuemero-reintento",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cca.nuemero-reintento'"
+  },
+  {
+    "name": "ws.cargo.token.param.user",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.token.param.user'"
+  },
+  {
+    "name": "ws.cargo.token.param.passUser",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.token.param.passUser'"
+  },
+  {
+    "name": "ws.cargo.token.param.scope",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.token.param.scope'"
+  },
+  {
+    "name": "ws.cargo.token.param.grandType",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.token.param.grandType'"
+  },
+  {
+    "name": "ws.cargo.nameSpace",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.nameSpace'"
+  },
+  {
+    "name": "ws.cargo.nameSpace",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.nameSpace'"
+  },
+  {
+    "name": "ws.cargo.nameSpace",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.nameSpace'"
+  },
+  {
+    "name": "ws.cargo.nameSpace",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.nameSpace'"
+  },
+  {
+    "name": "ws.cargo.nameSpace",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.nameSpace'"
+  },
+  {
+    "name": "ws.cargo.nameSpace",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.cargo.nameSpace'"
+  },
+  {
+    "name": "ws.consulta.dominio",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.dominio'"
+  },
+  {
+    "name": "ws.consulta.usuario-consumidor",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.usuario-consumidor'"
+  },
+  {
+    "name": "ws.consulta.id-canal",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.id-canal'"
+  },
+  {
+    "name": "ws.consulta.numero-sucursal",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.numero-sucursal'"
+  },
+  {
+    "name": "ws.consulta.url-servicio",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-servicio'"
+  },
+  {
+    "name": "ws.consulta.url-security-secext",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-security-secext'"
+  },
+  {
+    "name": "ws.consulta.url-security-message",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-security-message'"
+  },
+  {
+    "name": "ws.consulta.url-security-username-token",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-security-username-token'"
+  },
+  {
+    "name": "ws.consulta.url-security-utility",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-security-utility'"
+  },
+  {
+    "name": "ws.consulta.url-security-user",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-security-user'"
+  },
+  {
+    "name": "ws.consulta.url-security-password",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-security-password'"
+  },
+  {
+    "name": "ws.consulta.auth-usuario-servicio",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.auth-usuario-servicio'"
+  },
+  {
+    "name": "ws.consulta.auth-password-servicio",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.auth-password-servicio'"
+  },
+  {
+    "name": "ws.consulta.auth-tipo-auth",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.auth-tipo-auth'"
+  },
+  {
+    "name": "ws.consulta.osb-ns",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.osb-ns'"
+  },
+  {
+    "name": "ws.consulta.osb-ns1",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.osb-ns1'"
+  },
+  {
+    "name": "ws.consulta.osb-mpi",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.osb-mpi'"
+  },
+  {
+    "name": "ws.consulta.url-soapaction",
+    "type": "java.lang.String",
+    "description": "A description for 'ws.consulta.url-soapaction'"
+  }
+]}

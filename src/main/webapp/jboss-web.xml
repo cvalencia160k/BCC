@@ -1,0 +1,5 @@
+<resource-ref>
+   <res-ref-name>jdbc/BCHBancoCompensador</res-ref-name><!-- nombre local -->
+   <res-type>javax.sql.DataSource</res-type>
+   <jndi-name>java:/BCHBancoCompensador</jndi-name><!-- nombre global -->
+</resource-ref>

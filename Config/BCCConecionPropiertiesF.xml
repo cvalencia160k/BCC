@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<properties>
+ <property name="hibernate.show_sql" value="true"/>
+			 <property name="hibernate.proc.param_null_passing" value="true"/>
+			 
+			 <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+			 <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
+			 <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@200.14.166.164:1521:HERMES"/>
+
+<property name="javax.persistence.jdbc.user" value="BCO_COMPEN"/><property name="javax.persistence.jdbc.password" value="BCO_COMPEN"/></properties>
+</schema>

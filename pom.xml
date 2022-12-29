@@ -26,7 +26,10 @@
 		<directorio.base>${basedir}</directorio.base>
 		
 	</properties>
-	
+	<properties>
+  <sonar.organization>cvalencia160k</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 	<dependencies>
 	
 		<dependency>

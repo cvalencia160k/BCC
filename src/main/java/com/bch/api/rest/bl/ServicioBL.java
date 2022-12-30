@@ -30,6 +30,7 @@ import java.util.concurrent.Executors;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -533,6 +534,9 @@ public class ServicioBL
    private int timeOut;
  
    private   boolean indicadorReset;
+   
+   private String strCCA="notificacion CCA";
+   private String strCCAn="CCA";
  
  /************************************************************************
   * Nombre funcion: ejecutarConsulta.....................................*
@@ -588,8 +592,8 @@ public class ServicioBL
    String codigoRespuestaServ = sr.getCodigoRespuesta();
    String glosaRespuesta = sr.getGlosaRespuesta();
    
-   LOGGER.debug("RESPUESTA SERVICIO codigoRespuestaServ: "+codigoRespuestaServ);
-   LOGGER.debug("RESPUESTA SERVICIO glosaRespuesta: "+glosaRespuesta);
+   LOGGER.debug("CODIGO RESPUESTA SERVICIO codigoRespuestaServ: "+codigoRespuestaServ);
+   LOGGER.debug("GLOSA RESPUESTA SERVICIO glosaRespuesta: "+glosaRespuesta);
 
    codigoRespuestaServ = StringUtils.deleteWhitespace(codigoRespuestaServ);
    glosaRespuesta = StringUtils.deleteWhitespace(glosaRespuesta);
@@ -649,7 +653,7 @@ public class ServicioBL
 	  String nombreEventoMayus = tipoEvento.toUpperCase();
 	  String reintentoMayus = EventoTransaccion.REINTENTO.getValue().toUpperCase();
 
-   if(nombreEventoMayus.equals(nombreServCargo) && origen=="CCA") 
+   if(nombreEventoMayus.equals(nombreServCargo) && origen.equals(strCCAn)) 
    {
 	 //--- Finalmente Notificar de la respuesta a la CCA
 
@@ -661,7 +665,7 @@ public class ServicioBL
 	   				tipoEventoNoti,codigoOperacionC )
 	   );    
    }
-   else if(nombreEventoMayus.equals(reintentoMayus) && indicadorReset && origen=="CCA") 
+   else if(nombreEventoMayus.equals(reintentoMayus) && indicadorReset && origen.equals(strCCAn)) 
    {
     //--- En caso de evento 'REINTENTO' y sólo en OK, responder a CCA
      ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -882,7 +886,7 @@ public class ServicioBL
    
    return sr;
   }
-  catch(Exception ex3) 
+  catch(InterruptedException | ExecutionException ex3) 
   {
    String mensajeError = "";
    LOGGER.error("ex3.toString() -> '" + ex3.toString()+"'"); 
@@ -1173,19 +1177,19 @@ public void inicioCCA(Transaccion tranBD, boolean indicadorReset, String nombreE
 	//--- En caso de evento 'CARGO' OK/NOK, responder a CCA
 	   ResponseResetCCADTO respNoti = new ResponseResetCCADTO();
 	   String mensajeNoti = "";
-	   LOGGER.debug("notificacion CCA" + nombreEventoMayus);
-	   LOGGER.debug("notificacion CCA" + reintentoMayus);
-	   LOGGER.debug("notificacion CCA" + mensajeNoti);
+	   LOGGER.debug(strCCA + nombreEventoMayus);
+	   LOGGER.debug(strCCA + reintentoMayus);
+	   LOGGER.debug(strCCA + mensajeNoti);
 	    try {
 	    	
 			respNoti = this.notificarCCA(tranBD, indicadorReset,10000);
 		} catch (TimeoutException e) {
-			 LOGGER.error("Error notificar CCA hilo paralelo:"+ e);
-			 LOGGER.error("Error notificar CCA hilo paralelo:"+ e.getMessage());
+			 LOGGER.error("Error " + strCCA +" hilo paralelo:"+ e);
+			 LOGGER.error("Error " + strCCA  +" hilo paralelo:"+ e.getMessage());
 		}finally{
 			 mensajeNoti = "Notificación de Cargo a CCA: "+respNoti.getCodResp();
-			 LOGGER.debug("notificacion CCA indicadorReset" + indicadorReset);
-			 LOGGER.debug("notificacion CCA mensajeNoti " + mensajeNoti);
+			 LOGGER.debug(strCCA + " indicadorReset" + indicadorReset);
+			 LOGGER.debug(strCCA + " mensajeNoti " + mensajeNoti);
 			 tranBL.generarHistoriaTransaccion(tranBD, tipoEventoNoti, Integer.parseInt(codigoOperacion), mensajeNoti);
 		}
  }
@@ -1274,7 +1278,7 @@ public void inicioCCA(Transaccion tranBD, boolean indicadorReset, String nombreE
    codigoOperacionHistoria = 0;
    tranBL.generarHistoriaTransaccion(tranBD, tipoEvento, codigoOperacionHistoria, mensaje);
   }
-  catch(Exception ex)
+  catch(InterruptedException ex)
   {
    String mensajeError = "";
    LOGGER.error("ex.toString() -> '" + ex.toString()+"'");  
@@ -1292,6 +1296,9 @@ public void inicioCCA(Transaccion tranBD, boolean indicadorReset, String nombreE
    LOGGER.error("Error notificar CCA"+ mensajeError);
    
    tranBL.generarHistoriaTransaccion(tranBD, tipoEvento, codigoOperacionHistoria, mensajeError);
+  } catch (ExecutionException e) {
+	  LOGGER.error("ex.toString() -> '" + e.toString()+"'");  
+	   LOGGER.error("ex.toString() > '" + e);
   }
   
   return objResp;

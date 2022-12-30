@@ -36,7 +36,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
 
  static final Logger logger = Logger.getLogger(ApiRestApplication.class);
  static final String LOG_PROPERTIES_FILE = System.getProperty("APPS_PROPS") + "/Config/log4j.properties";
- //static final String LOG_PROPERTIES_FILE = "C:/Porpierties/Config/log4j.properties";
+
  /***********************************************************
   * Nombre funcion: main....................................*
   * Action: Inicializa API Rest.............................*
@@ -93,7 +93,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
          logger.warn("This is a warning message");
          logger.trace("This message will not be logged since log level is set as DEBUG");
      } catch (IOException e) {
-         logger.error("IOEXception occured:", e);
+         logger.error("IOEXception occured e:", e);
      }finally {
     	 try {
     		 if(fstream!=null) {
@@ -101,7 +101,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
     		 }
 			
 		} catch (IOException e) {
-	         logger.error("IOEXception occured:", e);
+	         logger.error("IOEXception occured: ", e);
 
 		}
     	 try {
@@ -110,7 +110,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
     		 }
 			
 		} catch (IOException e) {
-	         logger.error("IOEXception occured:", e);
+	         logger.error("IOEXception occurede: ", e);
 
 		}
     	 try {
@@ -119,7 +119,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
     		 }
 			
 		} catch (IOException e) {
-	         logger.error("IOEXception occured:", e);
+	         logger.error("IOEXception occuredd : ", e);
 
 		}
      }

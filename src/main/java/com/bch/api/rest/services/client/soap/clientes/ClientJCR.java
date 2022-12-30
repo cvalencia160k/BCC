@@ -176,7 +176,8 @@ public class ClientJCR {
 	         nInstitucion = nInstitucion.toUpperCase();
 	         String tipoProducto =(em.getCodigoEmisor()==1?prop.getProp().getServicioTipoProductoInt()
 	        		 :prop.getProp().getServicioTipoProducto());
-	         String toperacion = (tipoOperacion=="BCOCOMPENCAR"?"CARGO_" +tipoProducto :"ABONO_" +tipoProducto );
+	         String tipoOperracionCargo = "BCOCOMPENCAR";
+	         String toperacion = (tipoOperacion.equals(tipoOperracionCargo)?"CARGO_" +tipoProducto :"ABONO_" +tipoProducto );
 	         
 	         String medioPagoStr ="BCO COMP " + nInstitucion;
 	         String critterioTrx =prop.getProp().getSevicioCriterioTrx();

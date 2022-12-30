@@ -43,23 +43,27 @@ public class ClientService {
 		   String origen
 		   ) 
 		 {
+		String strAbono = "ABONO";
+ 		String strCargo = "CARGO";
+ 		String strConsulta = "CONSULTA";
+
 		     return new Callable<ServicioResponseDTO>() {
 		         @Override
 		         public ServicioResponseDTO call() throws Exception {
 		          
 		          ServicioResponseDTO respServ = new ServicioResponseDTO();
 		          
-		          if(nombreServicio == "CONSULTA") 
+		          if(nombreServicio.equals(strConsulta)) 
 		          { 
 		           respServ = servicioBusConsulta306((ServicioConsultaProperties)propServ, tranDAL, codigoIdTrx); 
 		          }
 		          
-		          if(nombreServicio == "CARGO") 
+		          if(nombreServicio.equals(strCargo)) 
 		          {
 		           respServ = servicioBusCargo406(fd, tranBD, (ServicioTokenProperties)propServ, origen);
 		          }
 		          
-		          if(nombreServicio == "ABONO") 
+		          if(nombreServicio.equals(strAbono)) 
 		          {
 		           respServ = servicioBusAbono506(fd, tranBD, (ServicioTokenProperties)propServ, origen);
 		          }      
@@ -74,6 +78,7 @@ public class ClientService {
 		   Object propServ
 		   ) 
 		 {
+	 		String strNotificaion = "NOTIFICACION";
 		     return new Callable<ServicioResponseDTO>() {
 		         @Override
 		         public ServicioResponseDTO call() throws Exception {
@@ -81,7 +86,7 @@ public class ClientService {
 		          ServicioResponseDTO respServ = new ServicioResponseDTO();
 		          
 		        
-		          if(nombreServicio == "NOTIFICACION") 
+		          if(nombreServicio.equals(strNotificaion)) 
 		          {
 		           respServ = servicioNotificacionCCA((ServicioNotificacionProperties)propServ);
 		          }

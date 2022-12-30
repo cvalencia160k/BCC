@@ -41,7 +41,8 @@ public class CompensacionBL {
  private String line;
  private String monto = "";
  private String numeroCredito = "";
- 
+ private static String errorJCR= "Error carga JCR detalle ";
+ private static String errorRPT= "Error obtenerReportesHistorico: ";
  /**
   * Verifica si existe un emisor por su codigo
   * @return
@@ -80,8 +81,8 @@ public class CompensacionBL {
 	 fechaIni = FuncionesGenerales.cleanXSS(fechaIni);
 	 fechaFin = FuncionesGenerales.cleanXSS(fechaFin);
 	 
-	 fechaIni = (fechaIni!="")?FuncionesGenerales.fecbaStandard(fechaIni):"";
-	 fechaFin = (fechaFin!="")?FuncionesGenerales.fecbaStandard(fechaFin):"";
+	 fechaIni = (!fechaIni.isEmpty())?FuncionesGenerales.fecbaStandard(fechaIni):"";
+	 fechaFin = (!fechaFin.isEmpty())?FuncionesGenerales.fecbaStandard(fechaFin):"";
 	 
 	 ListaResultadoPaginacionDTO objRes = new ListaResultadoPaginacionDTO();
 	 try {
@@ -92,7 +93,7 @@ public class CompensacionBL {
 				 pageSize, 
 				 pageNumber);
 	} catch (SQLException e) {
-		LOGGER.debug("Error obtenerReportesHistorico: "+e);
+		LOGGER.debug(errorRPT+e);
 	}
 	 return objRes;
  }
@@ -152,9 +153,9 @@ public class CompensacionBL {
 
 	 fechaFin = FuncionesGenerales.cleanXSS(fechaFin);
 
-	 fechaIni = (fechaIni!="")?FuncionesGenerales.fecbaStandard(fechaIni):"";
+	 fechaIni = (!fechaIni.isBlank())?FuncionesGenerales.fecbaStandard(fechaIni):"";
 
-	 fechaFin = (fechaFin!="")?FuncionesGenerales.fecbaStandard(fechaFin):"";
+	 fechaFin = (!fechaFin.isEmpty())?FuncionesGenerales.fecbaStandard(fechaFin):"";
 
 	 
 	 ListaResultadoPaginacionDTO objRes = new ListaResultadoPaginacionDTO();
@@ -168,7 +169,7 @@ public class CompensacionBL {
 				 ,fechaFin
 				 ,pageNumber);
 	} catch (SQLException e) {
-		LOGGER.debug("Error obtenerReportesHistorico: "+e);
+		LOGGER.debug(errorRPT+e);
 	}
 	 return objRes;
  }
@@ -186,7 +187,7 @@ public class CompensacionBL {
   }
   catch(Exception ex) 
   {
-     LOGGER.debug("Error obtenerReportesHistorico: "+ex);
+     LOGGER.debug(errorRPT+ex);
      return new ArrayList<ResponseTrxCompenHistoriaDTO>();
   }
  }
@@ -314,9 +315,9 @@ public class CompensacionBL {
   public String setOpcion(String opcion) {
 	  if(opcion.indexOf("   ID")>-1) {
 			 opcion = "ID";
-		 }if(opcion.indexOf("ITEMS RCVD")>-1) {
+		 }else if(opcion.indexOf("ITEMS RCVD")>-1) {
 			 opcion = "ITEMS RCVD";
-		 }if(opcion.indexOf("ITEMS ENVS")>-1) {
+		 }else if(opcion.indexOf("ITEMS ENVS")>-1) {
 			 opcion = "ITEMS ENVS";
 		 }
 		 
@@ -381,7 +382,7 @@ public class CompensacionBL {
 			return compenDAL.setTotalReporteCompen(idReporte, tipoTrx,codigoTrx,idEmisor,infoBL );
 		} catch (NumberFormatException | SQLException e) {
 			
-			LOGGER.error("Error carga total JCR "  +tipoTrx +": "+ e);
+			LOGGER.error(errorJCR  +tipoTrx +": "+ e);
 			return "Error carga total JCR "  +tipoTrx +": "+ e;
 		}
 
@@ -393,8 +394,8 @@ public class CompensacionBL {
 		return compenDAL.setDetalleReporteCompen(idReporte, tipoTrx,codigoTrx, idEmisor );
 	} catch (NumberFormatException | SQLException e) {
 		
-		LOGGER.error("Error carga JCR detalle "  +tipoTrx +":"+ e);
-		return "Error carga JCR detalle "  +tipoTrx +":"+ e;
+		LOGGER.error(errorJCR  +tipoTrx +":"+ e);
+		return errorJCR  +tipoTrx +":"+ e;
 	}
 	
   }
@@ -428,7 +429,7 @@ public class CompensacionBL {
 			}
 	} catch (NumberFormatException e) {
 		
-		LOGGER.error("Error carga JCR detalle "  +tipoTrx +":"+ e);
+		LOGGER.error(errorJCR  +tipoTrx +":"+ e);
 		return Result;
 	}
 	

@@ -209,8 +209,8 @@ public class TramoDAL{
 	{
  		 
 		
-		LOGGER.error("Error :" + ex);
-		String error = "Error al ejecutar SP: '"+nombreSP+"'";
+		LOGGER.error("Error Insercion:" + ex);
+		String error = "Error al ejecutar SP de Insercion: '"+nombreSP+"'";
 		LOGGER.info(error);
 		LOGGER.error(ex);
 
@@ -281,8 +281,8 @@ public class TramoDAL{
   }
   catch(Exception ex) 
   {
-	  LOGGER.error("Error :" + ex);
-	  String error = "Error al ejecutar SP: '"+nombreSP+"'";
+	  LOGGER.error("Error Actualizacion:" + ex);
+	  String error = "Error al ejecutar SP de Actualizacion: '"+nombreSP+"'";
 	  LOGGER.info(error);
 	  LOGGER.error(ex);
    
@@ -342,8 +342,8 @@ public class TramoDAL{
   
   catch(Exception ex) 
   {
-   LOGGER.error("Error :" + ex);
-   String error = "Error al ejecutar SP: '"+nombreSP+"'";
+   LOGGER.error("Error eliminacion:" + ex);
+   String error = "Error al ejecutar SP de eliminacion: '"+nombreSP+"'";
    LOGGER.info(error);
    LOGGER.error(ex);
    

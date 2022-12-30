@@ -14,7 +14,7 @@ import java.util.concurrent.TimeoutException;
 public class NotificacionCCABL {
 
  private static final Logger LOGGER = Logger.getLogger(NotificacionCCABL.class);
- 
+ private static String errorCCA = "Error notificar TRX a CCA hilo paralelo:";
  
  NotificacionCCABL() {
 	 LOGGER.debug("Inicio NotificacionCCABL");
@@ -49,13 +49,13 @@ public class NotificacionCCABL {
      }
      catch (NumberFormatException e)
      {
-         LOGGER.error("Error notificar TRX a CCA hilo paralelo:"+ e);
-         LOGGER.error("Error notificar TRX a CCA hilo paralelo:"+ e.getMessage());
+         LOGGER.error(errorCCA + e);
+         LOGGER.error(errorCCA + e.getMessage());
      }
      catch (TimeoutException e)
      {
-         LOGGER.error("Error notificar TRX a CCA hilo paralelo:"+ e);
-         LOGGER.error("Error notificar TRX a CCA hilo paralelo:"+ e.getMessage());
+         LOGGER.error(errorCCA+ e);
+         LOGGER.error(errorCCA+ e.getMessage());
      }
  }
 }

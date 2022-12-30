@@ -63,6 +63,12 @@ private TransaccionDAL tranDAL;
 
  String tipoTrxEnviado="E";
  
+ String dateStringE = "yyyy-MM-dd HH:mm:ss";
+ 
+ String dateStringI = "yyyyMMddHHmmss";
+ 
+ String strBCOCOMPEN = "BCOCOMPEN";
+ 
  private static final Logger LOGGER = Logger.getLogger(CompensacionDAL.class);
  
  
@@ -769,8 +775,8 @@ public Reporte  downReporteCompensacion(int id_reporte) throws IOException {
        }
        
     	   TransaccionDTO tran = new TransaccionDTO();
-    	   String codigotrx = "BCOCOMPEN" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + idReporte;
-    	   String fechaHoy = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    	   String codigotrx = strBCOCOMPEN + new SimpleDateFormat(dateStringI).format(new Date()) + idReporte;
+    	   String fechaHoy = new SimpleDateFormat(dateStringE).format(new Date());
     	   tran.setMontoTotalEnviadoCiclo(dif);
 		   tran.setCodInstitucion(emisorId);
 		   tran.setFechaHoraTrx(fechaHoy);
@@ -797,7 +803,7 @@ public Reporte  downReporteCompensacion(int id_reporte) throws IOException {
        em.close();
   
   }
-  catch(Exception ex) 
+  catch(InterruptedException ex) 
   {
 
 	  
@@ -854,14 +860,14 @@ public Reporte  downReporteCompensacion(int id_reporte) throws IOException {
        }
        
     	   TransaccionDTO tran = new TransaccionDTO();
-    	   String fechaHoy = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    	   String fechaHoy = new SimpleDateFormat(dateStringE).format(new Date());
 		   
     	   tran.setCodInstitucion(idEmisor);
 		   tran.setFechaHoraTrx(fechaHoy);
 	
 		   tran.setMontoTotalEnviadoCiclo(monto);
 		   
-		   String codigotrx = "BCOCOMPEN" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + idReporte + idEmisor;
+		   String codigotrx = strBCOCOMPEN + new SimpleDateFormat(dateStringI).format(new Date()) + idReporte + idEmisor;
 		   tran.setCodTrx(codigotrx);
 		   
 		   Emisor emi = facDAL.getEmiDAL().obtenerEmisor(Integer.parseInt(idEmisor));
@@ -884,7 +890,7 @@ public Reporte  downReporteCompensacion(int id_reporte) throws IOException {
        return "OK:" + result ;
   
   }
-  catch(Exception ex) 
+  catch(InterruptedException ex) 
   {
 	  LOGGER.error("Error al ejecutar JCR total: '"+ex);
    	  return "Error al ejecutar JCR total: '"+ex;
@@ -930,14 +936,14 @@ public Reporte  downReporteCompensacion(int id_reporte) throws IOException {
        for(Object[] resultRegCm : listRegCm) 
        {
     	   TransaccionDTO tran = new TransaccionDTO();
-    	   String fechaHoy = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    	   String fechaHoy = new SimpleDateFormat(dateStringE).format(new Date());
     	   tran.setMontoTotalEnviadoCiclo(resultRegCm[6].toString());
 		   tran.setCodInstitucion(resultRegCm[2].toString());
 		   tran.setFechaHoraTrx(fechaHoy);
 
 		   
 		   Emisor emi = facDAL.getEmiDAL().obtenerEmisor(Integer.parseInt(codigoEmisor));
-		   String codigotrx = "BCOCOMPEN" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + idReporte + indice;
+		   String codigotrx = strBCOCOMPEN + new SimpleDateFormat(dateStringI).format(new Date()) + idReporte + indice;
 		   tran.setCodTrx(codigoTrx);
 		   tran.setCodigoIdTransaccion(codigotrx);
     	   String nomInstitucion = resultRegCm[8].toString();

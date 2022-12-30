@@ -26,7 +26,7 @@ public class ApiController {
  @Autowired
  private InformarTefBL infoBL;
  private static final Logger LOGGER = Logger.getLogger(ApiController.class);
-
+private String dateString = "yyyy-MM-dd HH:mm:ss";
  /***********************************************************************************************************
   * Nombre funcion: InformarTEF3............................................................................*
   * Action: Servicio para ejecutar la acreditación de fondos................................................*
@@ -43,9 +43,9 @@ public class ApiController {
   {
 	  LOGGER.debug("####################INICIO PROCESO DE ACREDITAR FONDOS#############################");
 	  
-	  String fechaHoy = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-	   Date start = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss").parse(tran.getFechaHoraTrx()); 
-	   Date end = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss").parse(fechaHoy);
+	  String fechaHoy = new SimpleDateFormat(dateString).format(new Date());
+	   Date start = new SimpleDateFormat(dateString).parse(tran.getFechaHoraTrx()); 
+	   Date end = new SimpleDateFormat(dateString).parse(fechaHoy);
 	   
 	   
 	   boolean validaFecha = start.before(end);

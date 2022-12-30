@@ -33,7 +33,7 @@ public class InterfazArchivoBL {
  private TarifaBL tariBL;
 	
  private static final Logger LOGGER = Logger.getLogger(InterfazArchivoBL.class);
- 
+ private static String errorInterfaz = "Error al generar el archivo para la interfaz de archivo:";
  /**
   * Procesa un tipo de interfaz de archivo definido
   * @param tipoInterfaz "trx" o "tarifa"
@@ -91,8 +91,8 @@ public class InterfazArchivoBL {
 	    }
 	    catch (IOException ex)
 	    {
-	    	LOGGER.debug("Error al generar el archivo para la interfaz de archivo: "+ex.getMessage());
-	    	LOGGER.debug("Error al generar el archivo para la interfaz de archivo: "+ex);
+	    	LOGGER.debug(errorInterfaz+ex.getMessage());
+	    	LOGGER.debug(errorInterfaz+ex);
 
 	    	return null;
 	    }
@@ -202,11 +202,11 @@ public class InterfazArchivoBL {
 				}
 				writer.close();				
 			} catch (FileNotFoundException e) {
-				LOGGER.debug("Error al generar el archivo para la interfaz de archivo: "+e.getMessage());
-		    	LOGGER.debug("Error al generar el archivo para la interfaz de archivo: "+e);
+				LOGGER.debug(errorInterfaz+e.getMessage());
+		    	LOGGER.debug(errorInterfaz+e);
 			} catch (UnsupportedEncodingException e) {
-				LOGGER.debug("Error al generar el archivo para la interfaz de archivo: "+e.getMessage());
-		    	LOGGER.debug("Error al generar el archivo para la interfaz de archivo: "+e);
+				LOGGER.debug(errorInterfaz+e.getMessage());
+		    	LOGGER.debug(errorInterfaz+e);
 			}
 		    
 		    LOGGER.debug("OK descargando archivo de interfaz: "+directorioArchivo);

@@ -85,10 +85,6 @@ public class ServicioJCRPropertiesDto {
   this.servicioFuncionalidad = servicioFuncionalidad;
  }
 
- public String getTokenServicioParamUser() {
-  return servicioRest;
- }
-
  public void setServicioRest(String servicioRest) {
   this.servicioRest = servicioRest;
  }
@@ -330,9 +326,6 @@ public class ServicioJCRPropertiesDto {
   this.servicioMoneda = servicioMoneda;
  }
 
- public String getServicioValorCampo() {
-  return servicioTxRelacionada;
- }
 
  public void setServicioTxRelacionada(String servicioTxRelacionada) {
   this.servicioTxRelacionada = servicioTxRelacionada;

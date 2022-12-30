@@ -44,6 +44,9 @@ public class InformarTefBL {
  
  String codigoOperacion ="";
  
+ private static String strCCAn = "CCA";
+ private static String strFin = "####################FIN PROCESO DE ACREDITAR FONDOS#############################";
+ 
  /***********************************************************
   * Nombre funcion: GestionarTRX............................*
   * Action:Gestionar las trx................................*
@@ -75,7 +78,7 @@ public class InformarTefBL {
 	   resp.setCodigoOperacion(codOperacion);
 	   resp.setMessage(mensaje);
 	   resp.setMessage("NOK");
-	    	LOGGER.debug("####################FIN PROCESO DE ACREDITAR FONDOS#############################");
+	    	LOGGER.debug(strFin);
 	    	
 	    	 Transaccion tranBD = transformarTransaccionBD(tran);
 	    	   //---- 1. Registrar la transacción de entrada
@@ -93,7 +96,7 @@ public class InformarTefBL {
 	    	      
 	    	      resp.setCodigoOperacion(codOperacion);
 	    	      resp.setMessage("NOK");
-	    	      	LOGGER.debug("####################FIN PROCESO DE ACREDITAR FONDOS#############################");
+	    	      	LOGGER.debug(strFin);
 	    	      return resp; 
 	    	     }
 	    	   }
@@ -141,7 +144,7 @@ public class InformarTefBL {
       
       resp.setCodigoOperacion(codOperacion);
       resp.setMessage("NOK");
-      	LOGGER.debug("####################FIN PROCESO DE ACREDITAR FONDOS#############################");
+      	LOGGER.debug(strFin);
       return resp; 
      }
    }
@@ -156,9 +159,9 @@ public class InformarTefBL {
    tranBL.generarHistoriaTransaccion(tranBD, faseRecepcion, Integer.parseInt(codOperacion), mensaje);
    
    //---- 2. Validar datos de la transacción
-   if(origen=="CCA") {
+   if(origen.equals(strCCAn)) {
    ValidacionDTO respVal = this.validarDatosTransaccion(tranBD);
-   if(respVal.getMensajeValidacion() != "") 
+   if(!respVal.getMensajeValidacion().isEmpty()) 
    {
 	   codOperacion = String.valueOf(respVal.getCodigoOperacionValidacion());
     
@@ -170,7 +173,7 @@ public class InformarTefBL {
     executor.submit(() -> 
 	this.inicioCCA(resp.getMessage(), tranBD)
    );
-	   LOGGER.debug("####################FIN PROCESO DE ACREDITAR FONDOS#############################");    
+	   LOGGER.debug(strFin);    
     return resp;
  
    }
@@ -195,7 +198,7 @@ public class InformarTefBL {
 	   executor.submit(() -> 
 		this.inicioCCA(resp.getMessage(), tranBD)
 	   );
- 	   LOGGER.debug("####################FIN PROCESO DE ACREDITAR FONDOS#############################");   
+ 	   LOGGER.debug(strFin);   
     return resp;
    }
    
@@ -216,7 +219,7 @@ public class InformarTefBL {
    resp.setStatusCode(500);
    resp.setCodigoOperacion(codOperacion);
    resp.setMessage("Error en reintento: "+ex.getMessage());
-	LOGGER.debug("####################FIN PROCESO DE ACREDITAR FONDOS#############################");
+	LOGGER.debug(strFin);
 
    return resp;
   }
@@ -283,7 +286,7 @@ public class InformarTefBL {
 		   resp.setMessage("Error en fecha mayor a la actual");
 		   resp.setMessage("NOK");
 		   LOGGER.error("Error en fecha mayor a la actual ");	
-		   LOGGER.debug("####################FIN PROCESO DE ACREDITAR FONDOS#############################");
+		   LOGGER.debug(strFin);
 		   futureResult.complete(resp); 
 	  }).start();
 	  
@@ -344,7 +347,7 @@ public class InformarTefBL {
   //-------- Respuesta de la validación
   String strCodigosOperacion = valTef.getStrCodigosOperacion();
   String respValidacion = valTef.getRespValidacion();
-  if(respValidacion != "") 
+  if(!respValidacion.isEmpty()) 
   {
    valTef.setCodigoOperacionIteracion(valTef.getCodigoOperacionValidacion());
    

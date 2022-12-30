@@ -21,7 +21,7 @@ public class DigestUtils {
 
  private static final Logger LOGGER = Logger.getLogger(DigestUtils.class);
 
- private static final String  algorit ="SHA-1";
+ private static final String  ALGORITMO ="SHA-1";
  
  /**
   * Constructor
@@ -61,7 +61,7 @@ public class DigestUtils {
         try 
         {
  // Ensure SHA-1 algorithm is supported
-      md = MessageDigest.getInstance(algorit);
+      md = MessageDigest.getInstance(ALGORITMO);
 
  // Decode the incoming Base64 encoded nonce
          byte[] decodedNonce = null;

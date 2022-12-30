@@ -209,8 +209,8 @@ public class TransaccionBL {
 	 fechaFin = FuncionesGenerales.cleanXSS(fechaFin);
 	 estadoTrx = FuncionesGenerales.cleanXSS(estadoTrx);
 	 
-	 fechaIni = (fechaIni!="")?FuncionesGenerales.fecbaStandard(fechaIni):"";
-	 fechaFin = (fechaFin!="")?FuncionesGenerales.fecbaStandard(fechaFin):"";
+	 fechaIni = (!fechaIni.isEmpty())?FuncionesGenerales.fecbaStandard(fechaIni):"";
+	 fechaFin = (!fechaFin.isEmpty())?FuncionesGenerales.fecbaStandard(fechaFin):"";
 	 
 	 ListaResultadoPaginacionDTO objRes = new ListaResultadoPaginacionDTO();
 	 try {

@@ -176,7 +176,7 @@ public class FuncionesGenerales {
         String stringToEncrypted = texto + secretKy;
         try {
 
-         base64EncryptedString = new String(Base64.encodeBase64String(stringToEncrypted.getBytes("UTF8")));
+         base64EncryptedString = Base64.encodeBase64String(stringToEncrypted.getBytes("UTF8"));
             
         } catch (Exception exs) {
          LOGGER.error("Error ecncriptar:"+ exs);
@@ -393,8 +393,14 @@ public class FuncionesGenerales {
   */
  public static String limitarTamanoString(String str, int tam) 
  {
-	 return (str == null)?null:str.substring(0, (str.length()>tam)?tam-1:str.length());
+	 if(str == null) {
+		 return null;
+	 }else {
+		 return str.substring(0, (str.length()>tam)?tam-1:str.length()); 
+	 }
+	 
  }
+ 
  
  /**
   * Prevenir ataques XSS a string de entrada
@@ -409,7 +415,7 @@ public class FuncionesGenerales {
 	 result = result.replaceAll("(eval|EVAL|alert|ALERT|javascript|JAVASCRIPT|script|SCRIPT)", "");
 	 result = result.replaceAll("(truncate|TRUNCATE|table|TABLE|delete|DELETE|"
 	 		+ "select|SELECT|update|UPDATE|insert|INSERT|into|INTO|from|FROM)", "");
-	 result = result.replaceAll("[`~!@#$%^&*()_+[\\\\]\\\\\\\\;\\'./{}|\\\"<>?]", "");	//--- caracteres permitidos " -,:"	 
+	 result = result.replaceAll("[`~!@#$%^&*()_+[\\]\\;\\'./{}|\\\"<>?]", "");	//--- caracteres permitidos " -,:"	 
 	 }
 	 
 	 return result;
@@ -459,8 +465,9 @@ public class FuncionesGenerales {
    String nombreCampo = prop.getProp().getServicioNombreCampo();
    
    String valorCampo = ""; 
+   String strRegularizacion="Regularizacion";
    String[] valorCampoGlosas = prop.getProp().getServicioValorCampo().split("-");
-   if(origen=="Regularizacion") {
+   if(origen.equals(strRegularizacion)) {
 	   valorCampo = valorCampoGlosas[1];
    }else {
 	   valorCampo = valorCampoGlosas[0];

@@ -34,7 +34,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class ApiRestApplication extends SpringBootServletInitializer implements WebApplicationInitializer{
 
 
- static final Logger logger = Logger.getLogger(ApiRestApplication.class);
+ static final Logger LOGGER = Logger.getLogger(ApiRestApplication.class);
  static final String LOG_PROPERTIES_FILE = System.getProperty("APPS_PROPS") + "/Config/log4j.properties";
 
  /***********************************************************
@@ -63,7 +63,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
  public ApiRestApplication() {
      initializeLogger();
      // sample info log message
-     logger.info("Log4jDemo - leaving the constructor ...");
+     LOGGER.info("Log4jDemo - leaving the constructor ...");
  }
  
  private void initializeLogger() {
@@ -75,9 +75,9 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
          // load log4j properties configuration file
          logProperties.load(new FileInputStream(LOG_PROPERTIES_FILE));
          PropertyConfigurator.configure(logProperties);
-         logger.info("Logging initialized.");
+         LOGGER.info("Logging initialized.");
      } catch (IOException e) {
-         logger.error("Unable to load logging property :", e);
+    	 LOGGER.error("Unable to load logging property :", e);
      }
      try {
          fstream = new FileInputStream(LOG_PROPERTIES_FILE);
@@ -85,15 +85,15 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
          br = new BufferedReader(new InputStreamReader(in));
          String strLine;
          while ((strLine = br.readLine()) != null) {
-        	 logger.trace(strLine);
+        	 LOGGER.trace(strLine);
          }
         
      } catch (FileNotFoundException fe) {
-         logger.error("File Not Found", fe);
-         logger.warn("This is a warning message");
-         logger.trace("This message will not be logged since log level is set as DEBUG");
+    	 LOGGER.error("File Not Found", fe);
+    	 LOGGER.warn("This is a warning message");
+    	 LOGGER.trace("This message will not be logged since log level is set as DEBUG");
      } catch (IOException e) {
-         logger.error("IOEXception occured e:", e);
+    	 LOGGER.error("IOEXception occured e:", e);
      }finally {
     	 try {
     		 if(fstream!=null) {
@@ -101,7 +101,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
     		 }
 			
 		} catch (IOException e) {
-	         logger.error("IOEXception occured: ", e);
+			LOGGER.error("IOEXception occured: ", e);
 
 		}
     	 try {
@@ -110,7 +110,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
     		 }
 			
 		} catch (IOException e) {
-	         logger.error("IOEXception occurede: ", e);
+			LOGGER.error("IOEXception occurede: ", e);
 
 		}
     	 try {
@@ -119,7 +119,7 @@ public class ApiRestApplication extends SpringBootServletInitializer implements 
     		 }
 			
 		} catch (IOException e) {
-	         logger.error("IOEXception occuredd : ", e);
+			LOGGER.error("IOEXception occuredd : ", e);
 
 		}
      }

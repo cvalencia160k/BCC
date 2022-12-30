@@ -415,7 +415,7 @@ public class FuncionesGenerales {
 	 result = result.replaceAll("(eval|EVAL|alert|ALERT|javascript|JAVASCRIPT|script|SCRIPT)", "");
 	 result = result.replaceAll("(truncate|TRUNCATE|table|TABLE|delete|DELETE|"
 	 		+ "select|SELECT|update|UPDATE|insert|INSERT|into|INTO|from|FROM)", "");
-	 result = result.replaceAll("[`~!@#$%^&*()_+[\\]\\;\\'./{}|\\\"<>?]", "");	//--- caracteres permitidos " -,:"	 
+	 result = result.replaceAll("[`~!@#$%^&*()_+[\\\\]\\\\\\\\;\\'./{}|\\\"<>?]", "");	//--- caracteres permitidos " -,:"		 
 	 }
 	 
 	 return result;
